@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2013</title>
+</head>
+
+<body>
+    <script>
+        var myMap = new Map();
+        myMap.set("0", "foo");
+        myMap.set(1, "bar");
+        myMap.set({}, "baz");
+
+        var mapIter = myMap.entries();
+        console.log(mapIter);
+// console.log(mapIter.next().value); // ["0", "foo"]
+// console.log(mapIter.next().value); // [1, "bar"]
+// console.log(mapIter.next().value); // [Object, "baz"]
+
+    </script>
+</body>
+
+</html>
