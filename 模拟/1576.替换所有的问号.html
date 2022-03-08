@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1576</title>
+</head>
+
+
+<!-- 
+    收获：
+    1.将字符串转化为相应的字符数组
+    //方法一：
+    const res = s.split("");
+    //方法二：
+    const arr = [...s];
+    2.将字符数组转化为相应的字符串
+     //方法一： 将字符串转化为相应的字符数组
+            answ = res.toString();
+            while (answ.indexOf(',') !== -1) {
+                answ = answ.replace(',', '');
+            }
+    //方法二：
+            ans=res.join('');
+    3.int转化为char String.fromCharCode(97)
+    4.char转换为int 'a'.charCodeAt()
+
+ -->
+
+<body>
+    <script>
+        /**
+   * @param {string} s
+   * @return {string}
+   */
+        var modifyString = function (s) {
+            // 首先将字符串转换为相应的字符数组
+            const res = s.split("");
+            const n = res.length;
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < 3 && res[i] === '?'; j++) {
+                    let ok = true;
+                    if (i - 1 >= 0 && res[i - 1] === String.fromCharCode('a'.charCodeAt() + j)) ok = false;
+                    if (i + 1 < n && res[i + 1] === String.fromCharCode('a'.charCodeAt() + j)) ok = false;
+                    if (ok) {
+                        res[i] = String.fromCharCode('a'.charCodeAt() + j);
+                    }
+                }
+            }
+            // 将字符串转化为相应的字符数组
+            answ = res.toString();
+            while (answ.indexOf(',') !== -1) {
+                answ = answ.replace(',', '');
+            }
+            return answ;
+        };
+        console.log(modifyString("asddsdasa"));
+
+    </script>
+</body>
+
+</html>

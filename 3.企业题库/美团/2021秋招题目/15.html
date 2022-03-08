@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>十字路口</title>
+</head>
+
+<body>
+    <script>
+        const [n, m, xs, ys, xt, yt] = [5, 5, 2, 4, 4, 3]
+        let direction = [0, -1, 1]
+
+        let visited = new Array(n + 1).fill(0).map(() => new Array(m + 1).fill(false))
+        let a = [
+            [0, 0, 0, 0, 0, 0],
+            [0, 2, 1, 1, 3, 1],
+            [0, 1, 4, 2, 3, 1],
+            [0, 4, 4, 4, 2, 1],
+            [0, 3, 1, 1, 2, 4],
+            [0, 5, 1, 5, 5, 1]
+        ]
+        let b = [
+            [0, 0, 0, 0, 0, 0],
+            [0, 5, 3, 4, 1, 3],
+            [0, 1, 1, 2, 2, 2],
+            [0, 2, 1, 4, 4, 5],
+            [0, 1, 1, 5, 3, 3],
+            [0, 3, 2, 1, 3, 3]
+        ]
+        const bfs = time => {
+            let queue = [[xs, ys]]
+            while (queue.length) {
+                let len = queue.length;
+                while (len-- > 0) {
+                    let curPos = queue.shift();
+                    // 找到了小团，直接返回耗时
+                    if (curPos[0] === xt && curPos[1] == yt) {
+                        return time;
+                    }
+                    //在当前位置尝试移动
+                    for (let j = 0; j < direction.length; j++) {
+                        let remainder = time % (a[curPos[0]][curPos[1]] + b[curPos[0]][curPos[1]]);
+                        let x = curPos[0];
+                        let y = curPos[1];
+                        if (remainder < a[x][y]) {
+                            // 时间处于[k*aij+k*bij), (k+1)*aij+k*bij)
+                            x += direction[j];
+                        } else {
+                            // 时间处于[(k+1)*aij+k*bij), (k+1)*aij+(k+1)*bij)
+                            y += direction[j];
+                        }
+                        // 移动位置不合法
+                        if (x < 1 || x > n || y < 1 || y > m) continue;
+                        // 如果下一个位置还没有走过或者当前时刻不进行移动，就往队列中添加节点
+                        if (!visited[x][y] || j === 0) {
+                            queue.push([x, y]);
+                            visited[x][y] = true;
+                        }
+                    }
+                }
+                time++;
+            }
+            return time
+        }
+        let time = 0
+        visited[xs][ys] = true
+        console.log(bfs(time))
+    </script>
+</body>
+
+</html>

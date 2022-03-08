@@ -1,0 +1,26 @@
+//剑指47 礼物的最大价值
+// 给定一个包含非负整数的 M x N 迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。
+const readline = require('readline')
+const rl = readline.createInterface({
+    input: process.stdin,
+    ouput: process.stdout
+})
+let arr = []
+let grid = []
+rl.on("line", (line) => {
+    if (!line) return
+    // 引入相应的数据
+    arr.push(line.trim())
+    // 将相应的数据转换为相应的数据大的
+    let mn = arr[0].split(" ").map(x => +x)
+    let m = mn[0]
+    let n = mn[1]
+    if (arr.length === m + 1) {
+        for (let i = 1; i <= m; i++) {
+            grid[i - 1] = arr[i].split(" ").map(x => +x)
+        }
+        console.log(grid);
+
+    }
+})
+
