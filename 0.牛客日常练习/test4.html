@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const fn = async () => { }
+        // 等价于
+        // const fn = () => autoRun(function* () { })
+        // autoRun 是 Generator 迭代器函数的自动执行器，其实现如下
+        const autoRun = generator => new Promise((resolve, reject) => {
+            const gen = generator()
+            const step = nextFn => {
+                let next
+                try {
+                    next = nextFn()
+                } catch (e) {
+                    return reject(e)
+                }
+                if (next.done) return resolve(next.value)
+                Promise.resolve(next.value).then(
+                    v => step(() => gen.next(v)),
+                    e => step(() => gen.throw(e))
+                )
+            }
+            step(() => gen.next(undefined))
+        })
+
+        const fn = () => autoRun(function* () {
+            const result = yield new Promise(resolve => setTimeout(() => resolve(1), 1000))
+            console.log(result)
+        })
+
+        console.log(fn());
+    </script>
+</body>
+
+</html>
