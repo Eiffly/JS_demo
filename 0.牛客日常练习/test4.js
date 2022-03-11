@@ -65,3 +65,7 @@ console.log(iterator.next());
 console.log(iterator.next('BBB'));
 console.log(iterator.next('CCC'));
 // console.log(iterator.next('sDDD'));
+
+
+
+
