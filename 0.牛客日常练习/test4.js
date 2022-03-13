@@ -48,23 +48,24 @@
 // console.log(parseInt("1a"));
 // console.log([] instanceof Array);
 
-function* gen(arg) {
-    console.log(arg);
-    let one = yield 111;
-    console.log(one);
-    let two = yield 222;
-    console.log(two);
-    let three = yield 333;
-    console.log(three);
-}
+// function* gen(arg) {
+//     console.log(arg);
+//     let one = yield 111;
+//     console.log(one);
+//     let two = yield 222;
+//     console.log(two);
+//     let three = yield 333;
+//     console.log(three);
+// }
 
-//执行获取迭代器对象
-let iterator = gen('AAA');
-console.log(iterator.next());
-//next方法可以传入实参
-console.log(iterator.next('BBB'));
-console.log(iterator.next('CCC'));
-// console.log(iterator.next('sDDD'));
+// //执行获取迭代器对象
+// let iterator = gen('AAA');
+// console.log(iterator.next());
+// //next方法可以传入实参
+// console.log(iterator.next('BBB'));
+// console.log(iterator.next('CCC'));
+// // console.log(iterator.next('sDDD'));
+
 
 
 
