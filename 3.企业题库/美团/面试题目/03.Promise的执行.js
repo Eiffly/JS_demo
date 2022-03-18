@@ -9,4 +9,8 @@ Promise.resolve().then(
             return data;
         }
     )
+    // .then(() => console.log('m'))
 ).then(data => console.log(data));
+
+
+

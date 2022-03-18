@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn">点击按钮</button>
+    <script>
+        //页面的渲染涉及到样式计算 收集所有的CSS 计算应用到元素上的样式
+        //布局是创建一个渲染树 找出页面上的所有内容以及元素的位置 然后创建实际的像素数据 绘制内容到页面上
+        // const button = document.querySelector('.btn')
+        // button.addEventListener('click', () => {
+        //     Promise.resolve().then(() => console.log('M1'));
+        //     console.log('L1');
+        // })
+        // button.addEventListener('click', () => {
+        //     Promise.resolve().then(() => console.log('M2'));
+        //     console.log('L2');
+        // })
+        // button.click()
+
+
+        Promise.resolve()
+            .then(() => {
+                console.log(1);
+                Promise.resolve()
+                    .then(() => console.log(3))
+                    .then(() => console.log(4));
+            })
+            .then(() => console.log(2));
+    </script>
+</body>
+
+</html>

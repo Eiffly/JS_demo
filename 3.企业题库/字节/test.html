@@ -34,28 +34,30 @@
         //#endregion
 
         //第二种方式：通过闭包
-        var foo = function (...args) {
-            const fn = function () {
-                //Array.prototype.slice.call(arguments)的具体含义： https://www.cnblogs.com/papi/p/9234964.html
-                const arg1 = Array.prototype.slice.call(arguments)
-                args = args.concat(arg1)
-                return foo(...args)
-            }
-            fn.getValue = () => {
-                //当通过箭头函数的方法调用的时候，由于箭头函数没有自己的this，this表示的是window
-                //当通过function的方法调用的时候，this由于是以【方法】的形式调用的，this表示的是fn这个函数
-                console.log(this);
-                return args.reduce((pre, cur) => pre + cur, 0)
-            }
-            return fn
-        }
+        // var foo = function (...args) {
+        //     const fn = function () {
+        //         //Array.prototype.slice.call(arguments)的具体含义： https://www.cnblogs.com/papi/p/9234964.html
+        //         const arg1 = Array.prototype.slice.call(arguments)
+        //         args = args.concat(arg1)
+        //         return foo(...args)
+        //     }
+        //     fn.getValue = () => {
+        //         //当通过箭头函数的方法调用的时候，由于箭头函数没有自己的this，this表示的是window
+        //         //当通过function的方法调用的时候，this由于是以【方法】的形式调用的，this表示的是fn这个函数
+        //         console.log(this);
+        //         return args.reduce((pre, cur) => pre + cur, 0)
+        //     }
+        //     return fn
+        // }
 
-        var f1 = foo(1, 2, 3)
-        var f2 = foo(1)(2, 3)
-        var f3 = foo(1)(2)(3)(4)
-        f1.getValue()
-        f2.getValue()
-        f3.getValue()
+        // var f1 = foo(1, 2, 3)
+        // var f2 = foo(1)(2, 3)
+        // var f3 = foo(1)(2)(3)(4)
+        // f1.getValue()
+        // f2.getValue()
+        // f3.getValue()
+
+      
 
 
 
