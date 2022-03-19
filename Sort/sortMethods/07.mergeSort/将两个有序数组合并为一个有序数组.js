@@ -20,6 +20,8 @@ function merge(arr1, arr2) {
         result[index1 + index2] = arr2[index2];
         index2++;
     }
+
+    
     return result;
 }
 
