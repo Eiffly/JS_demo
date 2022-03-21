@@ -10,13 +10,12 @@
 
 <body>
     <script>
-        var bb = 1;
-        function aa(bb) {
-            bb = 2;
-            alert(bb);
-        };
-        aa(bb);
-        alert(bb);
+        var a = 1;
+        b = 2;
+        eval('var c = 3');
+        delete a;
+        delete b;
+        delete c;
 
 
     </script>
