@@ -1,5 +1,10 @@
-// var a = 10.42;
-// console.log(parseInt(a));
-// console.log(a.split('.')[0]);
-
-
+let a = 'w'
+let obj = {
+    a: 'o',
+    print: function () {
+        console.log(this.a);
+    },
+}
+let p = obj.print;
+obj.print();
+p();
