@@ -1,10 +1,5 @@
-let a = 'w'
-let obj = {
-    a: 'o',
-    print: function () {
-        console.log(this.a);
-    },
+for (var i = 0; i < 3; ++i) {
+    setTimeout(function () {
+        console.log(i)
+    }, 100);
 }
-let p = obj.print;
-obj.print();
-p();
