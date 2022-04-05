@@ -1,5 +1,2 @@
-for (var i = 0; i < 3; ++i) {
-    setTimeout(function () {
-        console.log(i)
-    }, 100);
-}
+var result = Math.round(11.5) + Math.round(-11.5);
+console.log(Math.round(-11.5));
