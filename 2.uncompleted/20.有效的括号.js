@@ -9,6 +9,7 @@ var isValid = function (s) {
         [']', '['],
         ['}', '{']
     ]);
+    //表示链表中有相应的元素
     const stk = [];
     for (let ch of s) {
         if (pairs.has(ch)) {
