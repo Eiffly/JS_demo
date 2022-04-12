@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左侧定宽,右侧自适应布局</title>
+    <style>
+        div {
+            height: 1000px;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .left {
+            flex: 0 0 200px;
+            background-color: #0ac2d2;
+        }
+        .right {
+            flex: 1;
+            background-color: #1b6d85;
+        }
+    </style>
+</head>
+<body>
+
+<h2>方法5:flex</h2>
+
+<div class="container">
+    <div class="left">左侧定宽区域</div>
+    <div class="right">右侧自适应宽度区域</div>
+</div>
+
+</body>
+</html>
