@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this的指向</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        //一次事件的操作
+        let inp = document.querySelector("input");
+        let t = null;
+        inp.oninput = function () {
+            if (t !== null) {
+                clearTimeout(t);
+            }
+            t = setTimeout(() => {
+                console.log(this.value);
+            }, 500)
+        }
+
+    </script>
+</body>
+
+</html>

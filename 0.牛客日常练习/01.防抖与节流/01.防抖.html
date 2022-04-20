@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.core.js"></script>
+</head>
+
+<body>
+    <p>请输入您的内容<input type="text"></p>
+    <script>
+        // 手写防抖与节流
+        const input = _.debounce(function () {
+            console.log("我一直在输入哦");
+        }, 1000)
+    </script>
+</body>
+
+</html>

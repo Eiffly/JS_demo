@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+    <script>
+        var ary11 = [1, 2, 3];
+        var ary12 = [];
+        $.extend(true, ary12, ary11);
+        // var ary12 = $.extend(true,[],ary11); // 作用同上面两个
+        ary11.push(99);
+        console.log(ary11); //[1,2,3,99]
+        console.log(ary12); //[1,2,3]
+    </script>
+</body>
+
+</html>
