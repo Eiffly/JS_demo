@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        let input = document.querySelector("input")
+        input.oninput = debounce(function () {
+            console.log(this.value);
+        }, 5000)
+        function debounce(fn, delay) {
+            let t = null
+            //1.因为debounce是以函数的方式来调用的，this指向window
+            console.log("bounce内部的函数", this);
+            return function () {
+                //2.相当于input.oninput=function(){} 根据上面的引入案例可以知道this是input
+                console.log("bounce返回的回调函数", this);
+                if (t !== null) {
+                    clearTimeout(t)
+                }
+                t = setTimeout(() => {
+                    // fn().call(this)
+                    fn()
+                }, 5000)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

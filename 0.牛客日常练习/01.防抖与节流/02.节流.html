@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 从bootCDN那里引入CDN -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
+</head>
+
+<body>
+    <div>
+        <p>我是计数器<span>0</span></p>
+        <button>点我+1</button>
+    </div>
+    <script>
+        // 节流
+        let span = document.querySelector("span")
+        let button = document.querySelector("button")
+        let count = 0
+        button.onclick = _.throttle(function () {
+            span.innerHTML = count++
+        }, 1000)
+
+    </script>
+</body>
+
+</html>
